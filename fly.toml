@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for app-summer-dust-8146 on 2026-03-13T10:25:20Z
+# fly.toml app configuration file generated for remote-server on 2026-03-13T10:30:22Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'app-summer-dust-8146'
+app = 'remote-server'
 primary_region = 'iad'
 
 [build]
@@ -20,4 +20,4 @@ primary_region = 'iad'
   memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1
-  memory_mb = 256
+  memory_mb = 1024
