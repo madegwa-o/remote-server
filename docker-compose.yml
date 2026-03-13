@@ -1,0 +1,26 @@
+services:
+  mongodb:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  telemetry-server:
+    build: .
+    depends_on:
+      - mongodb
+    environment:
+      APP_SERVER_ADDR: ":8080"
+      APP_MONGO_URI: "mongodb://mongodb:27017"
+      APP_MONGO_DATABASE: "telemetry"
+      APP_MONGO_COLLECTION: "vehicle_positions"
+      APP_GATEWAY_TOKEN: "dev-gateway-token"
+      APP_STORAGE_WORKERS: "8"
+      APP_EVENT_BUFFER_SIZE: "10000"
+      APP_BROADCAST_BUFFER_SIZE: "2048"
+    ports:
+      - "8080:8080"
+
+volumes:
+  mongo_data:
