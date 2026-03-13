@@ -11,12 +11,15 @@ import (
 
 	"remote-server/config"
 	"remote-server/internal/server"
+
+	"github.com/joho/godotenv"
 )
 
 func main() {
 	zerolog.TimeFieldFormat = zerolog.TimeFormatUnix
 	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stdout})
 
+	_ = godotenv.Load()
 	cfg, err := config.Load()
 	if err != nil {
 		log.Fatal().Err(err).Msg("failed to load config")
