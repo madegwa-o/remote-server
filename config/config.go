@@ -64,7 +64,7 @@ func Load() (Config, error) {
 	// =========================
 
 	// Server
-	v.SetDefault("SERVER_ADDR", ":8080")
+	v.SetDefault("SERVER_ADDR", ":9090")
 	v.SetDefault("ENABLE_TLS", false)
 	v.SetDefault("TLS_CERT_FILE", "")
 	v.SetDefault("TLS_KEY_FILE", "")
