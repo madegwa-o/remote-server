@@ -25,7 +25,6 @@ func main() {
 		log.Fatal().Err(err).Msg("failed to load config")
 	}
 
-	// Override host and port for now
 	cfg.ServerAddr = "0.0.0.0:8080"
 
 	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
